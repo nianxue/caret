@@ -137,9 +137,12 @@ stringFunc <- function (x)  {
           
         } else constString <- NULL
       } else constString <- NULL
+      
+      tuneAcc <- tuneAcc[,!grepl("Apparent$", names(tuneAcc)),drop = FALSE]
+      
       theDots <- list(...)
       theDots$x <- tuneAcc
-      if(!(any(names(theDots) == "digits"))) theDots$digits <- min(3, getOption("digits") - 3)
+#       if(!(any(names(theDots) == "digits"))) theDots$digits <- min(3, getOption("digits"))
       printMat <- do.call("format.data.frame", theDots)
       printMat <- as.matrix(printMat)
       rownames(printMat) <- rep("", dim(printMat)[1])

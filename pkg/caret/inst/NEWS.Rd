@@ -2,14 +2,40 @@
 \title{News for Package \pkg{caret}}
 \newcommand{\cpkg}{\href{http://CRAN.R-project.org/package=#1}{\pkg{#1}}}
 
-\section{Changes in version 6.0-XX}{
+\section{Changes in version 6.0-40}{
+	\itemize{
+		\item The license was changed to GPL-3 to accommodate new code from the GA package. 
+		\item New feature selection functions \code{gafs} and \code{safs} were added, along with helper functions and objects, were added. The package HTML was updated to expand more about feature selection. 
+		\item From the \cpkg{adabag} package, two new models were added: \code{AdaBag} and \code{AdaBoost.M1}. 
+		\item Weighted subspace random forests from the \cpkg{wsrf} package was added.
+		\item Additional bagged FDA and MARS models were added (model codes \code{bagFDAGCV} and \code{bagEarthGCV}) were added that use the GCV statistic to prune the model. This leads to memory reductions during training. 
+		\item The model code for \code{ada} had a bug fix applied and the code was adapted to use the "sub-model trick" so it should train faster. 				
+		\item A bug was fixed related to imputation when the formula method is used with \code{train}
+		\item The old \code{drop = FALSE} bug was fixed in \code{getTrainPerf}
+		\item A bug was fixed for custom models with no labels. 
+		\item A bug fix was made for bagged MARS models when predicting probabilities. 
+		\item In \code{train}, the argument \code{last} was being incorrectly set for the last model. 
+		\item Reynald Lescarbeau refactored \code{findCorrelation} to make it faster. 
+		\item The apparent performance values are not reported by  \code{print.train} when the bootstrap 632 estimate is used. 
+		\item When a required package is missing, the code stops earlier with a more explicit error message.
+	}
+}
+
+\section{Changes in version 6.0-37}{
 	\itemize{
 		\item Brenton Kenkel added ordered logistic or probit regression to \code{train} using \code{method = "polr"} from \cpkg{MASS} 
 		\item \code{LPH07_1} now encodes the noise variables as binary
 		\item Both \code{rfe} and \code{sbf} get arguments for \code{indexOut} for their control functions. 
 		\item A reworked version of \code{\link{nearZerVar}} based on code from Michael Benesty was added the old version is now called \code{nzv} that uses less memory and can be used in parallel. 
-		\item The adaptive mixture discriminant model from the \cpkg{adaptDA} package was added. 
+		\item The adaptive mixture discriminant model from the \cpkg{adaptDA} package was added as well as a robust mixture discriminant model from the \cpkg{robustDA} package. 
+		\item The multi-class discriminant model using binary predictors in the \cpkg{binda} package was added.
+		\item Ensembles of partial least squares models (via the \cpkg{enpls}) package was added.
 		\item A bug using \code{gbm} with Poisson data was fixed (thanks to user eriklampa)
+		\item \code{sbfControl} now has a \code{multivariate} option where all the predictors are exposed to the scoring function at once.
+		\item A function \code{compare_models} was added that is a simple comparison of models via \code{diff.resamples)}. 
+		\item The row names for the \code{variables} component of \code{rfe} objects were simplified.  
+		\item Philipp Bergmeir found a bug that was fixed where \code{bag} would not run in parallel. 
+		\item \code{predictionBounds} was not implemented during resampling.
 	}
 }
 
@@ -1571,8 +1597,8 @@ scatter plots are models or metrics.
 \section{Changes in version 4.50}{
 \itemize{ 
 
-\item Added \code{\link{dotplot.resamples}} plus acknowledgements to Hothorn et al 
-(2005) and Eugster et al (2008)
+\item Added \code{\link{dotplot.resamples}} plus acknowledgements to Hothorn et al.
+(2005) and Eugster et al. (2008)
 
  }
 }

@@ -38,22 +38,22 @@ rctrl2 <- rfeControl(method = "LOOCV", functions = gamFuncs)
 
 set.seed(849)
 test_cv_model <- rfe(x = trainX, y = trainY,
-                     sizes = c(1, 5, 10, 15),
+                     sizes = 1:3,
                      rfeControl = rctrl1)
 
 set.seed(849)
 test_loo_model <- rfe(x = trainX, y = trainY,
-                      sizes = c(1, 5, 10, 15),
+                      sizes = 1:3,
                       rfeControl = rctrl2)
 
 set.seed(849)
 test_cv_model_form <- rfe(y ~ ., data = training,
-                          sizes = c(1, 5, 10, 15),
+                          sizes = 1:3,
                           rfeControl = rctrl1)
 
 set.seed(849)
 test_loo_model_form <- rfe(y ~ ., data = training,
-                           sizes = c(1, 5, 10, 15),
+                           sizes = 1:3,
                            rfeControl = rctrl2)
 
 #########################################################################
@@ -84,17 +84,17 @@ cctrl2 <- rfeControl(method = "LOOCV", functions = gamFuncs)
 
 set.seed(849)
 test_cv_model_class <- rfe(x = trainX_class, y = trainY_class,
-                           sizes = c(1, 5, 10, 15),
+                           sizes = 1:3,
                            rfeControl = cctrl1)
 
 set.seed(849)
 test_loo_model_class <- rfe(x = trainX_class, y = trainY_class,
-                            sizes = c(1, 5, 10, 15),
+                            sizes = 1:3,
                             rfeControl = cctrl2)
 
 set.seed(849)
 test_cv_model_form_class <- rfe(Class ~ ., data = training_class,
-                                sizes = c(1, 5, 10, 15),
+                                sizes = 1:3,
                                 rfeControl = cctrl1)
 
 set.seed(849)

@@ -5,18 +5,27 @@
 
 pkg/caret/DESCRIPTION~
 
-pkg/caret_6.0-31.tar.gz
+*.tar.gz
 
-RegressionTests/.Rhistory
+*.Rhistory
 
-pkg/caret_6.0-32.tar.gz
+*.Rcheck
 
-pkg/caret_6.0-33.tar.gz
+*.Rproj.user
+.Rproj.user
 
-models/files/.Rhistory
+pkg/caret/inst/NEWS.Rd~
 
-pkg/caret/R/.Rhistory
+pkg/caret/src/symbols.rds
 
-pkg/caret_6.0-35.tar.gz
+html/featureselection.html
 
-pkg/caret.Rcheck
+html/makeHTML.Rout
+
+html/similarity.html
+
+html/tag_data.csv
+
+RegressionTests/move_files.Rout
+
+RegressionTests/.RData
